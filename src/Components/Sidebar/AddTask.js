@@ -29,6 +29,10 @@ class AddTask extends Component {
         // $('.modal-backdrop').remove();
         // $('body').removeAttr('class style');
         this.clearData();
+
+        let success = document.getElementById('successAlert');
+        success.classList.add("show");
+        setTimeout(() => { success.classList.remove("show") }, 2500);
     }
 
     // popAlert = () => {
@@ -61,7 +65,10 @@ class AddTask extends Component {
                                     <span>&times;</span>
                                 </button>
                             </div>
-                            <div className="modal-body">
+                            <div id="successAlert" className="alert fade alert-success mb-0">
+                                Your task has been successfully added!
+                            </div>
+                            <div className="modal-body pt-0">
                                 <label className="text-secondary font-weight-bold mb-0">Task name:</label>
                                 <div className="input-group mb-3">
                                     <input id="taskName" type="text" className="form-control" />
