@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Topbar from './Components/Topbar/Topbar'
+import TaskTable from './Components/TaskTable'
+import Sidebar from './Components/Sidebar/Sidebar'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Topbar />
+        <div className="m-4">
+          <div className="row">
+            <Sidebar />
+            <TaskTable />
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
