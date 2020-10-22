@@ -12,8 +12,8 @@
   min-height: 100vh;
 }
 
-.task-table td:nth-of-type(3) {
-  width: 60%;
+.task-table td:nth-of-type(2) {
+  width: 30%;
 }
 
 body {

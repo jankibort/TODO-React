@@ -7,10 +7,14 @@ class Sidebar extends Component {
     state = {}
     render() {
         return (
-            <div className="table-dark p-3 col-12 col-md-3">
-                <Weather />
-                <AddTask />
-                <FilterTasks />
+            <div className="col-12 col-md-3">
+                <div className="row">
+                    <div className="col-12 table-dark p-4">
+                        <Weather />
+                        <AddTask />
+                        <FilterTasks />
+                    </div>
+                </div>
             </div>
         );
     }

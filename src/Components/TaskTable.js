@@ -37,12 +37,12 @@ class TaskTable extends Component {
             const { id, name, status, description } = task;
             return (
                 <tr key={id}>
+                    <td className="text-nowrap">{status}</td>
                     <td>{name}</td>
-                    <td>{status}</td>
                     <td>{description}</td>
-                    <td>
-                        <i className="btn btn-sm btn-outline-light fas fa-edit mx-2"></i>
-                        <i onClick={() => { this.deleteTask(id) }} title="Delete" className="btn btn-sm btn-outline-light fas fa-trash-alt mx-2"></i>
+                    <td className="text-nowrap">
+                        <i className="btn btn-sm btn-outline-light fas fa-edit mr-2"></i>
+                        <i onClick={() => { this.deleteTask(id) }} title="Delete" className="btn btn-sm btn-outline-light fas fa-trash-alt"></i>
                     </td>
                 </tr>
             )
@@ -55,8 +55,8 @@ class TaskTable extends Component {
                 <table className="task-table table table-dark mb-0">
                     <thead>
                         <tr>
-                            <th>Name</th>
                             <th>Status</th>
+                            <th>Name</th>
                             <th>Description</th>
                             <th>Action</th>
                         </tr>

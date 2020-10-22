@@ -5,12 +5,19 @@ class FilterTasks extends Component {
     render() {
         return (
             <div>
-                <h6>Filter tasks:</h6>
-                <select className="custom-select mb-3">
-                    <option value="td">TODO</option>
-                    <option value="ip">In Progress</option>
-                </select>
-                <input type="text" className="form-control" placeholder="Task Name" />
+                <h5>Filters:</h5>
+                <div className="d-flex mb-3">
+                    <select className="custom-select">
+                        <option value="td">TODO</option>
+                        <option value="ip">In Progress</option>
+                    </select>
+                    <i className="text-nowrap btn btn-outline-danger ml-2">Add filter</i>
+                </div>
+                <div className="d-flex mb-3">
+                    <input type="text" className="form-control" placeholder="Task Name" />
+                    <i className="text-nowrap btn btn-outline-danger ml-2">Add filter</i>
+                </div>
+                <h5>Filters affecting table:</h5>
             </div>
         );
     }
