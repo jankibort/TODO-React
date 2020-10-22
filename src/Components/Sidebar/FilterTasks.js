@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class FilterTasks extends Component {
+    state = {
+        statusFilter: null,
+        nameFilter: null
+    }
+
     nameFilter() {
         const filter = document.getElementById('filterName').value;
         // this.setState({ nameFilter: filter });
@@ -16,17 +21,16 @@ class FilterTasks extends Component {
     }
 
     resetFilters = () => {
-        // this.setState({
-
-        // });
-        this.transerData({
+        this.transferData({
             nameFilter: null,
             statusFilter: null
         });
     }
 
     transferData(data) {
-        this.props.callback(data);
+        this.props.filtersSelected(data);
+        this.setState(data);
+        // console.log(this.state)
     }
 
     render() {
@@ -44,10 +48,10 @@ class FilterTasks extends Component {
                     <input id="filterName" type="text" className="form-control" placeholder="Task Name" />
                     <i onClick={() => { this.nameFilter() }} className="text-nowrap btn btn-outline-danger ml-2">Add filter</i>
                 </div>
-                <h5>Filters affecting table: {(this.props.statusFilter || this.props.nameFilter) ? null : <i className="text-secondary">none</i>}</h5>
-                {this.props.statusFilter ? <div>Status: "{this.props.statusFilter}"</div> : null}
-                {this.props.nameFilter ? <div>Task name containing: "{this.props.nameFilter}"</div> : null}
-                {(this.props.statusFilter || this.props.nameFilter) ? <div onClick={this.resetFilters} className="mt-2 btn btn-secondary w-100">Clear filters</div> : null}
+                <h5>Active filters: {(this.state.statusFilter || this.state.nameFilter) ? null : <i className="text-secondary">none</i>}</h5>
+                {this.state.statusFilter ? <div>Status: "{this.state.statusFilter}"</div> : null}
+                {this.state.nameFilter ? <div>Task name: "{this.state.nameFilter}"</div> : null}
+                {(this.state.statusFilter || this.state.nameFilter) ? <div onClick={() => { this.resetFilters() }} className="mt-2 btn btn-secondary w-100">Clear filters</div> : null}
             </div>
         );
     }

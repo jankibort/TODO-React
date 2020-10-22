@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-// import Alert from './Alert';
-// import $ from "jquery"
-
 const firebase = require('firebase');
 
 
 class AddTask extends Component {
-    state = {
-        success: null
-    }
 
     submitCreation = () => {
         let nameHandler = document.getElementById('taskName').value;
@@ -35,20 +29,11 @@ class AddTask extends Component {
         setTimeout(() => { success.classList.remove("show") }, 2500);
     }
 
-    // popAlert = () => {
-    //     return (
-    //         <div class="alert alert-success" role="alert">
-    //             This is a success alert—check it out!
-    //         </div>
-    //     );
-    // }
-
     clearData = () => {
         document.getElementById('taskName').value = null;
         document.getElementById('description').value = null;
     }
 
-    state = {}
     render() {
         return (
             <div>
@@ -60,7 +45,6 @@ class AddTask extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title text-secondary" id="exampleModalLabel">New task:</h5>
-                                {/* <Alert status={this.state.success} /> */}
                                 <button onClick={this.clearData} type="button" className="close" data-dismiss="modal">
                                     <span>&times;</span>
                                 </button>

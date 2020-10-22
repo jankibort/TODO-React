@@ -5,18 +5,23 @@ import FilterTasks from './FilterTasks';
 
 class Sidebar extends Component {
     handleCallback = (childData) => {
-        this.setState({ filters: childData })
+        this.setState(childData)
+    }
+
+    passFilters() {
+        this.props.getFilters(this.state)
+        console.log("dupa");
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className="col-12 col-md-3">
                 <div className="row">
                     <div className="col-12 table-dark p-4">
                         <Weather />
                         <AddTask />
-                        <FilterTasks callback={this.handleCallback} />
+                        <FilterTasks filtersSelected={this.handleCallback} />
                     </div>
                 </div>
             </div>
