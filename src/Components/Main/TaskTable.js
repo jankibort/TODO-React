@@ -3,6 +3,15 @@ import EditTask from './EditTask';
 const firebase = require('firebase');
 
 class TaskTable extends Component {
+    state = {
+        taskId: null,
+        task: {
+            description: null,
+            name: null,
+            status: null,
+        }
+    }
+
     deleteTask = (taskId) => {
         let acceptance = window.confirm("Press OK if you want to proceed removing chosen task");
         if (acceptance) {
@@ -14,10 +23,24 @@ class TaskTable extends Component {
         }
     }
 
-    editTask = (taskId) => {
-        console.log('sth')
-        return (<EditTask taskId={taskId} />);
+    fetchData = (taskId) => {
+        const task = firebase.firestore().collection('tasks').doc(taskId);
+
+        task.get().then((doc) => {
+            if (doc.exists) {
+                this.setState({
+                    task: doc.data()
+                });
+            } else {
+                console.log("err");
+            }
+        });
     }
+
+    // editTask = (taskId) => {
+    //     document.getElementById('editModal')
+    //     document.getElementById('editModal').classList.toggle('show');
+    // }
 
     renderTableBody = () => {
         const nameFilter = this.props.nameFilter;
@@ -31,7 +54,7 @@ class TaskTable extends Component {
                         <td>{name}</td>
                         <td>{description}</td>
                         <td className="text-nowrap">
-                            <i onClick={() => { this.editTask(id) }} className="btn btn-sm btn-outline-light fas fa-edit mr-2" title="Edit" data-toggle="modal" data-target={"#editModal" + id}></i>
+                            <i onClick={() => { this.setState({ taskId: id }); this.fetchData(id) }} className="btn btn-sm btn-outline-light fas fa-edit mr-2" title="Edit" data-toggle="modal" data-target="#editModal"></i>
                             <i onClick={() => { this.deleteTask(id) }} title="Delete" className="btn btn-sm btn-outline-light fas fa-trash-alt"></i>
                         </td>
                     </tr>
@@ -56,6 +79,7 @@ class TaskTable extends Component {
                         {this.renderTableBody()}
                     </tbody>
                 </table>
+                <EditTask id={this.state.taskId} task={this.state.task} />
             </div>
         );
     }

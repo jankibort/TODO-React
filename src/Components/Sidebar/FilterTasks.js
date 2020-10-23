@@ -8,10 +8,9 @@ class FilterTasks extends Component {
 
     nameFilter() {
         const filter = document.getElementById('filterName').value;
-        // this.setState({ nameFilter: filter });
+        if (filter === "") { return alert("Do not use emtpy filter."); }
         this.transferData({ nameFilter: filter });
         document.getElementById('filterName').value = null;
-        // this.transferData();
     }
 
     statusFilter() {
@@ -30,7 +29,6 @@ class FilterTasks extends Component {
     transferData(data) {
         this.props.filtersSelected(data);
         this.setState(data);
-        // console.log(this.state)
     }
 
     render() {
