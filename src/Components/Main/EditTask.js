@@ -15,10 +15,7 @@ class EditTask extends Component {
             status: statusHandler,
             description: descHandler
         });
-        //////////////   autohide and enable modal 
-        // $('#additionModal').hide()
-        // $('.modal-backdrop').remove();
-        // $('body').removeAttr('class style');
+
         this.clearData();
 
         let success = document.getElementById('editSuccessAlert');

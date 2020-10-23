@@ -37,11 +37,6 @@ class TaskTable extends Component {
         });
     }
 
-    // editTask = (taskId) => {
-    //     document.getElementById('editModal')
-    //     document.getElementById('editModal').classList.toggle('show');
-    // }
-
     renderTableBody = () => {
         const nameFilter = this.props.nameFilter;
         const statusFilter = this.props.statusFilter;
@@ -60,6 +55,7 @@ class TaskTable extends Component {
                     </tr>
                 )
             }
+            return null;
         });
     }
 
