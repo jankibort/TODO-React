@@ -61,7 +61,7 @@ class TaskTable extends Component {
 
     render() {
         return (
-            <div className="col-12 col-md-9">
+            <div className="col-12 col-lg-9">
                 <table className="task-table table table-dark mb-0">
                     <thead>
                         <tr>

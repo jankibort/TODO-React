@@ -34,13 +34,11 @@ class App extends Component {
         <Topbar />
         <div className="m-4">
           <div className="row">
-            <div className="col-12 col-md-3">
-              <div className="row">
-                <div className="col-12 table-dark p-4">
-                  <Weather />
-                  <AddTask />
-                  <FilterTasks filtersSelected={this.handleCallback} />
-                </div>
+            <div className="col-12 col-lg-3 mb-3">
+              <div className="w-100 table-dark p-4 mb-3">
+                <Weather />
+                <AddTask />
+                <FilterTasks filtersSelected={this.handleCallback} />
               </div>
             </div>
             <TaskTable
