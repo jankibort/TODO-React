@@ -7,7 +7,7 @@ class Weather extends React.Component {
     }
 
     async componentDidMount() {
-        const url = " https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/523920";
+        const url = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/523920";
 
         fetch(url).then((res) => { return res.json(); }).then((data) => {
             const weather = data;
