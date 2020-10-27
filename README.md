@@ -16,7 +16,4 @@ Features that would make service more comfy in future:
 - task deadline parameter
 - search tool that allows to filter more flexible way - for example: by fragment of description
 - responsiveness of service is very basic
-
-Due to basic knowledge and time limit left some warnings in console and didn't keep code cleanest way (seperated components). This might be fixed in future.
-
-Service is available on github pages : https://jankibort.github.io/ToDoApp/
+- add some reasonable UI
